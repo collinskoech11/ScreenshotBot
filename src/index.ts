@@ -2,13 +2,15 @@ import puppeteer from "puppeteer";
 import * as fs from "fs"
 import axios from "axios"
 import FormData from "form-data";
+import dotenv from "dotenv"
 
 const url:string = "https://cryptobubbles.net/"
 
 
 const interval:number = 1;
-const telegramEndpoint = "https://api.telegram.org/bot6002470637:AAGA78joqwYg6bFgUn_8RCuk8aSZu0wxKTg/sendPhoto"
-const chatId = '5688202073'
+const bot_token = process.env.BOT_TOKEN
+const telegramEndpoint = `https://api.telegram.org/bot${bot_token}/sendPhoto`
+const chatId = process.env.CHAT_ID
 
 async function takeScreenshot(): Promise<void> {
     const browser = await puppeteer.launch();
