@@ -3,11 +3,14 @@ import * as fs from "fs"
 import axios from "axios"
 import FormData from "form-data";
 import dotenv from "dotenv"
+import express from "express"
 
 const url:string = "https://cryptobubbles.net/"
 
+const app = express()
 
-const interval:number = 1;
+
+const interval:number = 15;
 const bot_token = process.env.BOT_TOKEN
 const telegramEndpoint = `https://api.telegram.org/bot${bot_token}/sendPhoto`
 const chatId = process.env.CHAT_ID
@@ -33,3 +36,7 @@ async function takeScreenshot(): Promise<void> {
 }
 
 setInterval(takeScreenshot, interval * 60 * 1000)
+
+app.listen(3000, () => {
+    console.log("server is runing on port 3000")
+})
