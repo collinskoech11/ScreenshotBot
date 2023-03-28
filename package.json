@@ -17,6 +17,7 @@
     "fs": "^0.0.1-security",
     "nodemon": "^2.0.22",
     "puppeteer": "^19.8.0",
+    "telegraf": "^4.12.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
